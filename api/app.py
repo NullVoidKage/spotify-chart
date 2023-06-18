@@ -1,6 +1,7 @@
 from flask import Flask, render_template, request, redirect, session, url_for
 import spotipy
 from spotipy.oauth2 import SpotifyOAuth
+import secrets
 
 app = Flask(__name__)
 app.secret_key = secrets.token_hex(16)
@@ -8,7 +9,7 @@ app.secret_key = secrets.token_hex(16)
 # Spotify API credentials
 CLIENT_ID = 'ba6a268d7e264ea899acac717e78ac09'
 CLIENT_SECRET = '455aea128c024e8b8b81d8977ed7124b'
-REDIRECT_URI = 'https://spotifychart.com/'
+REDIRECT_URI = 'https://spotifychart.com/callback'
 
 # Create a Spotify client
 scope = 'user-read-private user-read-email'
