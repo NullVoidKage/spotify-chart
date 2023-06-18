@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Search Results</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .track {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #ccc;
+        }
+
+        .track img {
+            width: 80px;
+            height: 80px;
+            margin-right: 20px;
+        }
+
+        .track-details {
+            flex-grow: 1;
+        }
+
+        .track-name {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .track-artist {
+            font-size: 14px;
+            color: #888;
+        }
+    </style>
+</head>
+<body>
+    <h1>Search Results</h1>
+    <div class="container">
+        {% if tracks %}
+            {% for track in tracks %}
+                <div class="track">
+                    <img src="{{ track['album']['images'][0]['url'] }}" alt="Album Art">
+                    <div class="track-details">
+                        <p class="track-name">{{ track['name'] }}</p>
+                        <p class="track-artist">By: {{ track['artists'][0]['name'] }}</p>
+                    </div>
+                </div>
+            {% endfor %}
+        {% else %}
+            <p>No tracks found.</p>
+        {% endif %}
+    </div>
+</body>
+</html>
