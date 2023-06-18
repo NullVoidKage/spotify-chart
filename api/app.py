@@ -8,7 +8,7 @@ app.secret_key = 'your_secret_key'
 # Spotify API credentials
 CLIENT_ID = 'ba6a268d7e264ea899acac717e78ac09'
 CLIENT_SECRET = '455aea128c024e8b8b81d8977ed7124b'
-REDIRECT_URI = 'https://spotify-chart-c5og2o3zi-nullvoidkage-s-team.vercel.app/search'
+REDIRECT_URI = 'https://spotify-chart-c5og2o3zi-nullvoidkage-s-team.vercel.app'
 
 # Create a Spotify client
 scope = 'user-read-private user-read-email'
