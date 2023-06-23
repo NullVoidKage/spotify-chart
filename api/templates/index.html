@@ -1,14 +1,80 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Spotify Search App</title>
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+    <title>Monthly Played Hours</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        .result-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 50px;
+        }
+
+        .result-box {
+            width: 300px;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            text-align: center;
+        }
+
+        .result-label {
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .result-value {
+            font-size: 24px;
+        }
+
+        .personality-traits {
+            margin-top: 30px;
+        }
+
+        .personality-trait {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .trait-label {
+            font-weight: bold;
+            margin-right: 10px;
+        }
+
+        .trait-image {
+            width: 50px;
+            height: 50px;
+            margin-right: 10px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+    </style>
 </head>
 <body>
-    <h1>Spotify Search</h1>
-    <form action="/search" method="POST">
-        <input type="text" name="query" placeholder="Enter a track name" required>
-        <button type="submit">Search</button>
-    </form>
+    <h1>Monthly Played Hours</h1>
+    <div class="result-container">
+        <div class="result-box">
+            <div class="result-label">Total Played Hours</div>
+            <div class="result-value">{{ total_hours }}</div>
+        </div>
+    </div>
+    <div class="personality-traits">
+        {% for trait in personality_result %}
+            <div class="personality-trait">
+                <img class="trait-image" src="{{ trait.image_url }}" alt="{{ trait.trait }}">
+                <div class="trait-label">{{ trait.trait }}</div>
+            </div>
+        {% endfor %}
+    </div>
 </body>
 </html>
